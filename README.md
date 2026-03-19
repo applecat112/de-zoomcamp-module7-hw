@@ -11,7 +11,7 @@ docker exec -it workshop-redpanda-1 rpk version
 docker exec -it workshop-redpanda-1 rpk topic create green-trips
 pip install kafka-python pandas pyarrow
 python producer.py
-# Expected: ~60 seconds
+# Expected: ~10 seconds
 
 ### 4. Q3 - Run consumer
 python consumer.py
