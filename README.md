@@ -47,13 +47,13 @@ SELECT PULocationID, num_trips FROM tumbling_window_trips ORDER BY num_trips DES
 docker exec -it workshop-jobmanager-1 flink run -py /opt/src/job/job_q5_session_window.py
 docker exec -it workshop-postgres-1 psql -U postgres -c "
 SELECT PULocationID, num_trips FROM session_window_trips ORDER BY num_trips DESC LIMIT 3;"
-# Answer: 51 trips in longest session
+# Answer: 81 trips in longest session
 
 ### 9. Q6 - Submit hourly tips job
 docker exec -it workshop-jobmanager-1 flink run -py /opt/src/job/job_q6_hourly_tips.py
 docker exec -it workshop-postgres-1 psql -U postgres -c "
 SELECT window_start, total_tip FROM hourly_tips ORDER BY total_tip DESC LIMIT 3;"
-# Answer: 2025-10-01 18:00:00
+# Answer: 2025-10-16 18:00:00
 
 ### Notes:
 # - If topic has duplicate data: docker exec -it workshop-redpanda-1 rpk topic delete green-trips
